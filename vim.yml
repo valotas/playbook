@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  vars: 
+    dotfiles_dest: ~/dotfiles_test
+  tasks:
+    - name: Install VIM
+      apt: pkg=vim state=present
+      sudo: yes
+  
+    - name: Install Dotfiles to {{dotfiles_dest}}
+      git: repo=git@github.com:valotas/dotfiles.git dest={{dotfiles_dest}}
+    - name: Init dotfiles submodules
+      command: git submodule update --init --recursive chdir={{dotfiles_dest}}
