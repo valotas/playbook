@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  vars:
+    repo: ppa:chris-lea/node.js
+  tasks:
+    - name: Add {{repo}}
+      apt_repository: repo={{repo}} state=present
+      sudo: yes
+  
+    - name: Update cache
+      apt: update_cache=yes cache_valid_time=3600
+      register: ps
+      sudo: yes
+
+    - name: Install nodejs
+      apt: name=python-software-properties,vim state=present
+      register: ps
+      sudo: yes
