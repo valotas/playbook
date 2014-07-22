@@ -10,3 +10,11 @@ sudo apt-add-repository ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get install ansible git
 ```
+
+and then in order to install this repo
+
+```
+git clone git@github.com:valotas/playbook.git ~/.ansible
+cd ~/.ansible
+./play vim.yml
+```
