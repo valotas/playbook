@@ -1,11 +1,11 @@
 ---
 - hosts: localhost
   vars: 
-    version: 0.44
-    deb_file: /tmp/Brackets.Release.{{version}}.64-bit.deb
+    version: 1.0
+    deb_file: /tmp/Brackets.{{version}}.Extract.64-bit.deb
   tasks:
     - name: download {{deb_file}}
-      get_url: url=https://github.com/adobe/brackets/releases/download/release-{{version}}/Brackets.Release.{{version}}.64-bit.deb dest={{deb_file}}
+      get_url: url=https://github.com/adobe/brackets/releases/download/release-{{version}}/Brackets.{{version}}.Extract.64-bit.deb dest={{deb_file}}
   
     - name: install Brackets
       raw: dpkg -i {{deb_file}}
