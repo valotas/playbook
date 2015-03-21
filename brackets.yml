@@ -4,7 +4,7 @@
     version: 1.2
     deb_file: /tmp/Brackets.{{version}}.Extract.64-bit.deb
   tasks:
-    - name: download {{deb_file}}
+    - name: Downloading brackets
       get_url: url=https://github.com/adobe/brackets/releases/download/release-{{version}}%2Beb4/Brackets.{{version}}.Extract.64-bit.deb dest={{deb_file}}
   
     - name: install Brackets
